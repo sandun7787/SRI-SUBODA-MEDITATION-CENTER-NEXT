@@ -118,7 +118,7 @@ function Navbar() {
           </AnimatePresence>
         </li>
         <li>
-          <Link href="/contact" className={`text-lg font-medium ${isScrolled ? "text-black" : "text-white"} hover:text-blue-500 transition-colors duration-300`}>
+          <Link href="/Contact/contact" className={`text-lg font-medium ${isScrolled ? "text-black" : "text-white"} hover:text-blue-500 transition-colors duration-300`}>
             Contact
           </Link>
         </li>
