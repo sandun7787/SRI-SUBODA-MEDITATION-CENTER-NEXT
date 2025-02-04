@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUtensils, faSpa, faBed } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-
+import Footer from "@/components/Footer/Footer";
 
 
 

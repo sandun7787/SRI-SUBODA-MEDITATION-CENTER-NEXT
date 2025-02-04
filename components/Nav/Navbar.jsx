@@ -41,7 +41,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/about" className={`text-lg font-medium ${isScrolled ? "text-black" : "text-white"} hover:text-blue-500 transition-colors duration-300`}>
+          <Link href="/About/About" className={`text-lg font-medium ${isScrolled ? "text-black" : "text-white"} hover:text-blue-500 transition-colors duration-300`}>
             About
           </Link>
         </li>
