@@ -63,12 +63,12 @@ function Navbar() {
                 className="absolute top-10 bg-white rounded-lg shadow-md py-2 w-40"
               >
                 <li>
-                  <Link href="/blog/articles" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Blog/Articles" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Articles
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog/sections" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Blog/Sections" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Sections
                   </Link>
                 </li>
