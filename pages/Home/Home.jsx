@@ -8,7 +8,7 @@ import { faHeart, faUtensils, faSpa, faBed } from "@fortawesome/free-solid-svg-i
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from "@/components/Footer/Footer";
-
+import { useRouter } from "next/router"; 
 
 
 const changingTexts = [
@@ -31,6 +31,7 @@ const images = [
 ];
 
 const HomePage = () => {
+  const router = useRouter();
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
@@ -164,6 +165,9 @@ const HomePage = () => {
     };
     
   }, []);
+  const handleNavigation = () => {
+    router.push("/About"); // ✅ Navigate to About page
+  };
   return (
     <div className="bg-gray-100 text-black">
     {/* Hero Section */}
@@ -471,12 +475,12 @@ const HomePage = () => {
             visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
           }}
         >
-          <button
-            onClick={() => navigate("/about")}
-            className="bg-green-400 text-gray-900 font-semibold text-lg py-3 px-6 rounded-md shadow-md hover:bg-green-500 transition-all"
-          >
-            WHO WE ARE
-          </button>
+         <button
+        onClick={() => router.push("/About/About")} // ✅ Corrected navigation
+        className="bg-green-400 text-gray-900 font-semibold text-lg py-3 px-6 rounded-md shadow-md hover:bg-green-500 transition-all"
+      >
+        WHO WE ARE
+      </button>
         </motion.div>
       </motion.div>
     </section>
@@ -549,14 +553,16 @@ const HomePage = () => {
         </div>
 
         {/* Explore More Button */}
-        <div className="text-center mt-8">
-          <button
-            onClick={() => router.push("/blog")}
-            className="flex items-center justify-center gap-2 px-8 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-md hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105"
-          >
-            Explore More <FaArrowRight />
-          </button>
-        </div>
+{/* Explore More Button */}
+<div className="flex justify-end mt-8">
+  <button
+    onClick={() => router.push("/Blog/Sections")}
+    className="px-4 py-3 bg-pink-500 text-white font-semibold rounded-full shadow-md hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105"
+  >
+    <FaArrowRight className="text-xl" />
+  </button>
+</div>
+
       </div>
     </section>
     <section

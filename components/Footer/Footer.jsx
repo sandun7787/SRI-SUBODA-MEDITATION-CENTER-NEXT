@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // ✅ Optimized Image import for Next.js
 
 function Footer() {
   return (
@@ -7,13 +8,22 @@ function Footer() {
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Left Section */}
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl font-extrabold tracking-widest uppercase hover:text-gray-300 transition-all duration-500 transform hover:scale-105">
-              SRI SUBODA MEDITATION CENTER
-            </h1>
-            <p className="text-gray-400 text-sm mt-4">
-              Spreading peace and mindfulness around the world.
-            </p>
+          <div className="flex items-center justify-center md:justify-start">
+            <Image
+              src="/assets/m.png"
+              alt="Logo"
+              width={120}  // Increased width for larger image
+              height={120} // Increased height for larger image
+              className="mr-6 rounded-full" // Adjusted margin for balance
+            />
+            <div>
+              <h1 className="text-xl font-medium tracking-wide uppercase hover:text-gray-300 transition-all duration-500 transform hover:scale-105">
+                SRI SUBODA MEDITATION CENTER
+              </h1>
+              <p className="text-gray-400 text-sm mt-2">
+                Spreading peace and mindfulness around the world.
+              </p>
+            </div>
           </div>
 
           {/* Center Section */}
