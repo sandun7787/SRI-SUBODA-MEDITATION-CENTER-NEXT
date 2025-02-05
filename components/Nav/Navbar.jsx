@@ -94,22 +94,22 @@ function Navbar() {
                 className="absolute top-10 bg-white rounded-lg shadow-md py-2 w-48"
               >
                 <li>
-                  <Link href="/service/accommodation" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Service/AccommodationPage/Accommodation" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Accommodation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/service/foods" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Service/FoodPage/FoodPage" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Foods
                   </Link>
                 </li>
                 <li>
-                  <Link href="/service/meditation" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Service/MeditationPage/MeditationPage" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Meditation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/service/meditation-practice" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                  <Link href="/Service/MeditationPracticePage/MeditationPracticePage" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                     Meditation Practice
                   </Link>
                 </li>

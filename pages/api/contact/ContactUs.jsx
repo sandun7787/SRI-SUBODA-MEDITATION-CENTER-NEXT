@@ -4,8 +4,8 @@ import bg_3 from "/public/assets/contact/c1.jpg";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Navbar from "@/components/Nav/Navbar";  
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Nav/Navbar";  // Correct import for Navbar
+import Footer from "@/components/Footer/Footer";  // Correct import for Footer
 
 const ContactUs = () => {
   const locationRef = useRef(null);
@@ -45,6 +45,7 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch("/api/sendContact", {
         method: "POST",
@@ -175,32 +176,6 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Location Map Section */}
-      <section
-        className={`py-16 bg-gray-50 transition-all duration-1000 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-        ref={locationRef}
-      >
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center" data-aos="fade-up">
-            Our Location
-          </h2>
-          <div className="w-full h-[600px] overflow-hidden rounded-lg shadow-lg relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63314.917320091944!2d80.610853511719!3d7.290572734962937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae366fc5a59f291%3A0xa77df7b1c2a3e72b!2sKandy!5e0!3m2!1sen!2slk!4v1675200513942!5m2!1sen!2slk"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              title="Kandy Map"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
       <Footer />
     </>
   );

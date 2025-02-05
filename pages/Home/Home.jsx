@@ -65,25 +65,25 @@ const HomePage = () => {
       title: "Meditation",
       text: "Discover inner peace and clarity.",
       icon: "fa-solid fa-heart",
-      route: "/meditation",
+      route: "/Service/MeditationPage/MeditationPage",
     },
     {
       title: "Food",
       text: "Nourish your body and soul.",
       icon: "fa-solid fa-utensils",
-      route: "/food",
+      route: "/Service/FoodPage/FoodPage",
     },
     {
       title: "Meditation Practice",
       text: "Deepen your meditation journey.",
       icon: "fa-solid fa-spa",
-      route: "/meditation-practice",
+      route: "/Service/MeditationPracticePage/MeditationPracticePage",
     },
     {
       title: "Accommodation",
       text: "Find a comfortable retreat.",
       icon: "fa-solid fa-bed",
-      route: "/accommodation",
+      route: "/Service/AccommodationPage/Accommodation",
     },
   ];
   
