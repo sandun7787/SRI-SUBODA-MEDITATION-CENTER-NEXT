@@ -11,14 +11,9 @@ import Footer from "@/components/Footer/Footer";
 import { useRouter } from "next/router"; 
 
 
-const changingTexts = [
-  "Inspiration For Joyful Living.",
-  "Change Your World with Yoga.",
-  "Find Your Inner Peace Today.",
-];
 
 const heroImages = [
-  "/assets/image/m1.jpg",
+  "/assets/image/m27.jpg",
   "/assets/image/m2.jpg",
   "/assets/image/m3.jpg",
   "/assets/image/h6.png",
@@ -89,23 +84,16 @@ const HomePage = () => {
   
 
   useEffect(() => {
-    const textInterval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        setCurrentTextIndex((prevIndex) => (prevIndex + 1) % changingTexts.length);
-        setIsVisible(true);
-      }, 1000);
-    }, 5000);
-
     const imageInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     }, 5000);
-
+  
     return () => {
-      clearInterval(textInterval);
       clearInterval(imageInterval);
     };
   }, []);
+  
+
 
   const handlePreviousImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -170,183 +158,178 @@ const HomePage = () => {
   };
   return (
     <div className="bg-gray-100 text-black">
-    {/* Hero Section */}
-    <section
-      className="relative bg-cover bg-center h-screen flex items-center justify-start text-left transition-opacity duration-1000"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${heroImages[currentImageIndex]})`,
-      }}
-    >
-      <AnimatePresence>
-        <motion.div
-          key={currentImageIndex}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 bg-cover bg-center z-0"
+             <section
+        className="relative flex items-center justify-start text-left transition-opacity duration-1000"
+        style={{
+          marginTop: "100px", // Push section below the fixed navbar
+        }}
+      >
+        {/* Displaying the image directly with <img> tag */}
+        <img
+          src={heroImages[currentImageIndex]}
+          alt="Hero Image"
+          className="w-full h-auto"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${heroImages[currentImageIndex]})`,
+            objectFit: "contain", // Ensures the image is shown at full size
+            objectPosition: "center",
           }}
-        ></motion.div>
-      </AnimatePresence>
+        />
 
-      <div className="container mx-auto px-4 z-10">
-        <div className="flex items-center justify-start h-full">
-          <div className="w-full md:w-2/3">
-            <motion.h1
-              key={currentTextIndex}
-              className={`text-5xl font-bold mb-4 text-white transform transition-all duration-1000 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"
-              }`}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 1 }}
-            >
-              {changingTexts[currentTextIndex]}
-            </motion.h1>
-            <h2 className="text-lg mb-6 text-white opacity-90 hover:opacity-100">
-              Do Yoga today for a better tomorrow
-            </h2>
-            {/* Buttons for Manual Image Change */}
-            <div className="mt-6 flex space-x-4">
-              <button onClick={handlePreviousImage}>
-                <FaChevronLeft className="text-white text-3xl" />
-              </button>
-              <button onClick={handleNextImage}>
-                <FaChevronRight className="text-white text-3xl" />
-              </button>
+        <div className="container mx-auto px-4 z-10">
+          <div className="flex items-center justify-start h-full">
+            <div className="w-full md:w-2/3">
+              {/* Arrows for Image Navigation */}
+              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <button onClick={handlePreviousImage} className="text-white text-3xl">
+                  <FaChevronLeft />
+                </button>
+              </div>
+
+              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                <button onClick={handleNextImage} className="text-white text-3xl">
+                  <FaChevronRight />
+                </button>
+              </div>
+
+              {/* Navigation Circles Below the Image */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-all ${
+                      currentImageIndex === index ? "bg-gray-800 opacity-100" : ""
+                    }`}
+                  ></button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    {/* Intro Section */}
-    <section
-      ref={introRef}
-      className={`flex flex-col lg:flex-row h-screen bg-gray-50 transition-all duration-1000 ${
-        introVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      {/* Image Section */}
-      <div
-        className={`flex-1 flex justify-center items-center lg:justify-start p-8 transform transition-all duration-1000 ${
-          introVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        }`}
-      >
-        <img
-          src="/assets/image/in1.jpg"
-          alt="Meditation Intro"
-          className="w-full max-w-3xl rounded-lg shadow-lg"
-        />
-      </div>
+      </section>
 
-      {/* Text Content Section */}
-      <div className="flex-1 flex flex-col justify-center px-12 space-y-6">
-        <div className="text-left">
-          <h2 className="text-5xl font-bold text-gray-900 leading-snug mb-6">
-            How to Fulfill It?
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-500 mb-4">
-            Buddhist meditation is a combination of <strong>Samatha</strong> and <strong>Vipassana</strong>. Samatha means calming or stilling the mind, making it peaceful and most importantly clear. Vipassana is a technique for developing mindfulness, or awareness, that has been around for thousands of years. This technique is used by non-religious and religious people alike, including agnostics, atheists, and people of every religion and faith.
-          </p>
-          <p className="text-lg leading-relaxed text-gray-500 mb-4">
-            A huge body of study done in recent years shows the benefits of practicing Vipassana meditation daily. According to studies, doing this meditation daily has huge advantages. It makes us happier, less stressed, more focused and effective, more awake—and it leads to eternal bliss.
-          </p>
-          <p className="text-lg leading-relaxed text-gray-500">
-            We would encourage all the laypeople here who are practicing to develop awareness and wisdom. By consistently practicing guided meditation, listening to Dhamma talks, and following proper conduct, one can develop mindfulness and wisdom.
-          </p>
-        </div>
-      </div>
-    </section>
+
+
+<section
+  ref={introRef}
+  className={`flex flex-col lg:flex-row min-h-screen bg-gray-50 transition-all duration-1000 ${
+    introVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+  style={{ paddingTop: "80px" }} // Adjust padding to push intro below the navbar
+>
+  {/* Image Section */}
+  <div
+    className={`flex-1 flex justify-center items-center lg:justify-start p-8 transform transition-all duration-1000 ${
+      introVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+    }`}
+    style={{
+      position: "relative", // Ensure it's within the parent
+      zIndex: 0, // Image stays behind content
+    }}
+  >
+    <img
+      src="/assets/image/in1.jpg"
+      alt="Meditation Intro"
+      className="w-full h-full object-cover rounded-lg shadow-lg"
+    />
+  </div>
+
+  {/* Text Content Section */}
+  <div className="flex-1 flex flex-col justify-center px-12 space-y-6 z-10">
+    <div className="text-left">
+      <h2 className="text-5xl font-bold text-gray-900 leading-snug mb-6">
+        How to Fulfill It?
+      </h2>
+      <p className="text-lg leading-relaxed text-gray-500 mb-4">
+        Buddhist meditation is a combination of <strong>Samatha</strong> and <strong>Vipassana</strong>. Samatha means calming or stilling the mind, making it peaceful and most importantly clear. Vipassana is a technique for developing mindfulness, or awareness, that has been around for thousands of years. This technique is used by non-religious and religious people alike, including agnostics, atheists, and people of every religion and faith.
+      </p>
+      <p className="text-lg leading-relaxed text-gray-500 mb-4">
+        A huge body of study done in recent years shows the benefits of practicing Vipassana meditation daily. According to studies, doing this meditation daily has huge advantages. It makes us happier, less stressed, more focused and effective, more awake—and it leads to eternal bliss.
+      </p>
+      <p className="text-lg leading-relaxed text-gray-500">
+        We would encourage all the laypeople here who are practicing to develop awareness and wisdom. By consistently practicing guided meditation, listening to Dhamma talks, and following proper conduct, one can develop mindfulness and wisdom.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
        
     <section
-      ref={serviceRef}
-      className="bg-gradient-to-b from-gray-100 to-gray-200 py-12"
+  ref={serviceRef}
+  className="py-16 bg-white"
+>
+  <div className="container mx-auto px-6">
+    {/* Section Heading */}
+    <motion.div
+      className="text-center mb-12"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto px-4">
-        {/* Section Heading */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold text-gray-800">Our Services</h2>
-          <p className="text-gray-600 mt-4">
-            Explore our wide range of services designed to bring balance and joy
-            to your life.
-          </p>
-        </motion.div>
+      <h2 className="text-4xl font-bold text-gray-800 mb-3">Our Services</h2>
+      <p className="text-gray-600 text-lg">
+        Discover how we help you grow spiritually and peacefully.
+      </p>
+    </motion.div>
 
-        {/* Responsive Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const gradients = [
-              "bg-gradient-to-r from-blue-400 to-purple-500",
-              "bg-gradient-to-r from-green-400 to-blue-500",
-              "bg-gradient-to-r from-pink-400 to-red-500",
-              "bg-gradient-to-r from-yellow-400 to-orange-500",
-            ];
-            const gradient = gradients[index % gradients.length];
+    {/* Services Icons Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-12 text-center">
+      {services.map((service, index) => {
+        const colors = [
+          "bg-gradient-to-br from-red-500 to-pink-500",
+          "bg-gradient-to-br from-green-500 to-teal-500",
+          "bg-gradient-to-br from-indigo-500 to-purple-500",
+          "bg-gradient-to-br from-yellow-500 to-orange-500",
+        ];
+        const color = colors[index % colors.length];
 
-            return (
-              <motion.div
-                key={index}
-                className="p-4"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  delay: index * 0.2,
-                  duration: 0.8,
-                  ease: "easeOut",
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              delay: index * 0.2,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
+            <div className="flex flex-col items-center space-y-4">
+              {/* Icon with hover crowd effect */}
+              <motion.button
+                onClick={() => router.push(service.route)}
+                whileHover={{
+                  scale: 1.25,
+                  rotate: [0, 5, -5, 0],
+                  transition: { duration: 0.6 },
                 }}
+                whileTap={{ scale: 0.9 }}
+                className={`text-white text-7xl p-6 rounded-full shadow-xl ${color} transition-all duration-500`}
               >
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-                  }}
-                  className="bg-white text-center rounded-xl shadow-lg p-6 sm:p-8 transform transition-transform h-full flex flex-col justify-between"
-                >
-                  {/* Icon with Unique Gradient */}
-                  <motion.div
-                    className={`w-16 h-16 mx-auto mb-6 ${gradient} rounded-full flex items-center justify-center text-white text-3xl`}
-                    whileHover={{
-                      rotate: 360,
-                      transition: { duration: 0.8, ease: "easeInOut" },
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <i className={service.icon}></i>
-                  </motion.div>
+                <i className={service.icon}></i>
+              </motion.button>
 
-                  {/* Service Title */}
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    {service.title}
-                  </h3>
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-gray-800">
+                {service.title}
+              </h3>
 
-                  {/* Service Description */}
-                  <p className="text-gray-600 text-sm">{service.text}</p>
+              {/* Small Text */}
+              <p className="text-gray-600 text-sm max-w-xs px-3">
+                {service.text}
+              </p>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
-                  {/* Explore More Button */}
-                  <motion.button
-                    onClick={() => router.push(service.route)}
-                    className="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-full shadow-lg"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Explore
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
  
     <section ref={testimonyRef} className="py-12 bg-gray-100">
     <div className="container mx-auto">
@@ -422,7 +405,7 @@ const HomePage = () => {
       id="counter-section"
       ref={ref}
       className="relative bg-cover bg-center bg-no-repeat bg-fixed py-20 flex items-center"
-      style={{ backgroundImage: "url('/assets/image/c1.jpg')" }}
+      style={{ backgroundImage: "url('/assets/image/m23.jpg')" }}
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

@@ -71,6 +71,7 @@ const ContactUs = () => {
       {/* Navbar */}
       <Navbar />
 
+      {/* Hero Section */}
       <section
         className="relative flex items-center justify-center h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${bg_3.src})` }}
@@ -85,36 +86,31 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="py-16">
+      {/* Contact Form Section */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Contact Information Section */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow-md" data-aos="fade-right">
-              <h2 className="text-2xl font-bold mb-6 text-gray-800">Contact Information</h2>
-              <div className="space-y-4 text-sm">
+            {/* Contact Information */}
+            <div className="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-6">Contact Information</h2>
+              <div className="space-y-6">
                 <p className="text-gray-600">
-                  <span className="block font-bold text-gray-800">Address:</span>
-                  198 West 21th Street, Suite 721, New York NY 10016
+                  <span className="font-bold text-gray-800">Address:</span> 198 West 21st Street, Suite 721, New York NY 10016
                 </p>
                 <p className="text-gray-600">
-                  <span className="block font-bold text-gray-800">Phone:</span>
-                  <a href="tel://1234567920" className="text-pink-600 hover:underline">
-                    + 1235 2355 98
-                  </a>
+                  <span className="font-bold text-gray-800">Phone:</span> <a href="tel://1234567920" className="text-pink-600 hover:underline">+1235 2355 98</a>
                 </p>
                 <p className="text-gray-600">
-                  <span className="block font-bold text-gray-800">Email:</span>
-                  <a href="mailto:info@yoursite.com" className="text-pink-600 hover:underline">
-                    info@yoursite.com
-                  </a>
+                  <span className="font-bold text-gray-800">Email:</span> <a href="mailto:info@yoursite.com" className="text-pink-600 hover:underline">info@yoursite.com</a>
                 </p>
               </div>
             </div>
 
-            {/* Form Section */}
-            <div className="bg-white p-6 rounded-lg shadow-md" data-aos="fade-left">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Contact Form */}
+            <div className="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-6">Send Us a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <input
                       type="text"
@@ -122,7 +118,7 @@ const ContactUs = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-pink-300"
+                      className="w-full p-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
                       placeholder="Your Name"
                     />
                   </div>
@@ -133,7 +129,7 @@ const ContactUs = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-pink-300"
+                      className="w-full p-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
                       placeholder="Your Email"
                     />
                   </div>
@@ -145,7 +141,7 @@ const ContactUs = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-pink-300"
+                    className="w-full p-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
                     placeholder="Subject"
                   />
                 </div>
@@ -156,14 +152,14 @@ const ContactUs = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-pink-300"
+                    className="w-full p-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
                     placeholder="Message"
                   ></textarea>
                 </div>
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 focus:outline-none focus:ring focus:ring-pink-300"
+                    className="w-full bg-pink-500 text-white py-4 px-6 rounded-lg hover:bg-pink-600 transition-all focus:outline-none focus:ring-2 focus:ring-pink-300"
                   >
                     Send Message
                   </button>

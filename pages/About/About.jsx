@@ -10,7 +10,7 @@ import Image from "next/image";
 import heroImage from "/public/assets/image/B1.jpg";
 import objectiveImg from "/public/assets/image/B2.jpg";
 import centerImg from "/public/assets/image/B3.jpg";
-import historyImg from "/public/assets/image/g1.jpg";
+import historyImg from "/public/assets/image/m22.jpg";
 import coach3 from "/public/assets/image/g3.jpg";
 import coach4 from "/public/assets/image/h2.jpg";
 import bg3 from "/public/assets/image/in1.jpg";
@@ -114,7 +114,7 @@ const About = () => {
     </div>
     <div className="overflow-hidden rounded-lg shadow-lg">
       <Image
-    
+        src={historyImg}
         alt="The Teachers in the Past"
         className="w-full h-48 sm:h-72 md:h-96 object-cover"
         data-aos="fade-left"
