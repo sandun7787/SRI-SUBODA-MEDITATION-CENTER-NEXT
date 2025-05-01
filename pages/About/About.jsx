@@ -7,14 +7,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Importing images
-import heroImage from "/public/assets/image/B1.jpg";
+import heroImage from "/public/assets/image/f2.jpg";
 import objectiveImg from "/public/assets/image/B2.jpg";
 import centerImg from "/public/assets/image/B3.jpg";
 import historyImg from "/public/assets/image/m22.jpg";
 import coach3 from "/public/assets/image/g3.jpg";
 import coach4 from "/public/assets/image/h2.jpg";
 import bg3 from "/public/assets/image/in1.jpg";
-
+import bg1 from "/public/assets/image/f.jpg";
+import bg8 from "/public/assets/image/f3.jpg";
 const About = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
@@ -114,7 +115,7 @@ const About = () => {
     </div>
     <div className="overflow-hidden rounded-lg shadow-lg">
       <Image
-        src={historyImg}
+        src={bg1}
         alt="The Teachers in the Past"
         className="w-full h-48 sm:h-72 md:h-96 object-cover"
         data-aos="fade-left"
@@ -145,7 +146,7 @@ const About = () => {
   <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-10">
     <div className="overflow-hidden rounded-lg shadow-lg">
       <Image
-        
+         src={historyImg}
         alt="Most Venerable Wattegama Dhammawasa Thero"
         className="w-full h-48 sm:h-72 md:h-96 object-cover"
       />
@@ -179,7 +180,7 @@ const About = () => {
   <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-10">
     <div className="overflow-hidden rounded-lg shadow-lg">
       <Image
-        
+        src={bg8}
         alt="Anura Gunaratne"
         className="w-full h-48 sm:h-72 md:h-96 object-cover"
       />

@@ -1,31 +1,29 @@
-// pages/api/sendEmail.js
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { name, email, subject, message } = req.body;
+    const { name, email, phone, subject, message } = req.body; // Add phone to the request body
 
-    // Create a transporter object using Gmail's SMTP details
+    // Create a transporter using environment variables for email authentication
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com", // Correct SMTP host for Gmail
-      port: 587, // Use port 587 for TLS
-      secure: false, // False for TLS, true for SSL (use 465 for SSL)
+      host: "smtp.gmail.com", 
+      port: 587,
+      secure: false, 
       auth: {
-        user: "sandunwarnasooreya345@gmail.com", // Your Gmail address
-        pass: "wdxv sybs rcrw oald", // Your Gmail password or App Password if using 2FA
+        user: process.env.EMAIL_USER,  // Email from environment variable
+        pass: process.env.EMAIL_PASS,  // Email password from environment variable
       },
     });
 
-    // Define the email options
+    // Define the mail options including the phone number in the email content
     const mailOptions = {
-      from: email, // Sender's email (provided in the form)
-      to: "sandunwarnasooreya345@gmail.com", // Your email address (recipient)
+      from: email, 
+      to: process.env.EMAIL_TO,  // Recipient email from environment variable
       subject: subject,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     };
 
     try {
-      // Send the email
       await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {

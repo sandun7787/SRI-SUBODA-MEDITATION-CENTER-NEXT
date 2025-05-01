@@ -69,6 +69,22 @@ function Navbar() {
             Calendar
           </Link>
         </li>
+        <li>
+          <Link
+            href="/Cha/cha"
+            className={`text-lg font-medium ${isScrolled ? "text-black" : "text-black"} hover:text-orange-500 transition-colors duration-300`}
+          >
+            Charitable work
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/Chores/Chores"
+            className={`text-lg font-medium ${isScrolled ? "text-black" : "text-black"} hover:text-orange-500 transition-colors duration-300`}
+          >
+            Chores
+          </Link>
+        </li>
         <li
           className="relative"
           onMouseEnter={() => setIsBlogDropdownOpen(true)}
