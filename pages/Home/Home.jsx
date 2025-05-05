@@ -13,10 +13,13 @@ import { useRouter } from "next/router";
 
 
 const heroImages = [
-  "/assets/image/m27.jpg",
-  "/assets/image/m2.jpg",
-  "/assets/image/m3.jpg",
-  "/assets/image/h6.png",
+  "/assets/image/mm1.jpg",
+  "/assets/image/mm2.jpg",
+  "/assets/image/mm3.jpg",
+  "/assets/image/mm5.jpg",
+  "/assets/image/mm6.jpg",
+  "/assets/image/mm7.jpg",
+  "/assets/image/mm4.jpg",
 ];
 const images = [
   "/assets/image/g1.jpg",

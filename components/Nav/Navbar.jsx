@@ -35,8 +35,8 @@ function Navbar() {
         
         {/* Text Section */}
         <div className="flex flex-col">
-          <span className="text-2xl font-bold text-orange-500">SRI SUBODA MEDITATION CENTAR</span>
-          <span className="text-xl font-bold text-orange-500">CENTER FOR MIND & BODY BALANCE</span>
+          <span className="text-2xl font-bold text-orange-500">SRI SUBODHA MEDITATION CENTER</span>
+          <span className="text-xl font-bold text-orange-500">FOR MEDITATION & MINDFULLNESS PRACTICE</span>
         </div>
       </motion.div>
 
